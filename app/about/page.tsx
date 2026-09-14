@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import { MapPin, Bike, Wrench, BookOpen, Compass } from 'lucide-react';
 import SmartImage from '@/components/shared/smart-image';
