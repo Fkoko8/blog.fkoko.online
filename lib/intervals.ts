@@ -50,8 +50,15 @@ export async function getIntervalsActivities() {
   }
 
   const credentials = Buffer.from(`${apiKey}:`).toString('base64');
+  const oldest = new Date();
+  oldest.setFullYear(oldest.getFullYear() - 1);
+  const params = new URLSearchParams({
+    oldest: oldest.toISOString().slice(0, 10),
+    newest: new Date().toISOString().slice(0, 10),
+    limit: '100',
+  });
   const response = await fetch(
-    `https://intervals.icu/api/v1/athlete/${encodeURIComponent(athleteId)}/activities?limit=20`,
+    `https://intervals.icu/api/v1/athlete/${encodeURIComponent(athleteId)}/activities?${params.toString()}`,
     {
       headers: { Authorization: `Basic ${credentials}` },
       next: { revalidate: 300 },
