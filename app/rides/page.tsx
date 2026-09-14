@@ -27,7 +27,7 @@ export default function RidesPage() {
       );
     }
     return result.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-  }, [query, typeFilter]);
+  }, [query, typeFilter, rides]);
 
   const totalDistance = filtered.reduce((sum, r) => sum + r.distance, 0);
   const totalElevation = filtered.reduce((sum, r) => sum + r.elevation, 0);
