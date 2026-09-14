@@ -92,7 +92,7 @@ export interface Ride {
   location: string;
   routeImage: string | null;
   notes: string;
-  stravaUrl?: string;
+  activityUrl?: string;
 }
 
 export interface TrainingDay {

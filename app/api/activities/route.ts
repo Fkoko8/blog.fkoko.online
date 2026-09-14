@@ -1,16 +1,16 @@
 import { NextResponse } from 'next/server';
-import { getStravaActivities } from '@/lib/strava';
+import { getIntervalsActivities } from '@/lib/intervals';
 
 export async function GET() {
   try {
-    const activities = await getStravaActivities();
+    const activities = await getIntervalsActivities();
     if (!activities) {
       return NextResponse.json({ configured: false, activities: [] });
     }
 
     return NextResponse.json({ configured: true, activities });
   } catch (error) {
-    console.error('Failed to load Strava activities', error);
+    console.error('Failed to load Intervals.icu activities', error);
     return NextResponse.json({ configured: true, activities: [] }, { status: 502 });
   }
 }
