@@ -32,14 +32,13 @@ const durationToHours = (duration: string) => {
 };
 
 export function getCurrentWeekActivities(rides: Ride[], now = new Date()) {
-  const monday = new Date(now);
-  const day = monday.getDay() || 7;
-  monday.setDate(monday.getDate() - day + 1);
-  monday.setHours(0, 0, 0, 0);
+  const periodStart = new Date(now);
+  periodStart.setDate(periodStart.getDate() - 6);
+  periodStart.setHours(0, 0, 0, 0);
 
   return Array.from({ length: 7 }, (_, index): ActivityDay => {
-    const date = new Date(monday);
-    date.setDate(monday.getDate() + index);
+    const date = new Date(periodStart);
+    date.setDate(periodStart.getDate() + index);
     const key = dateKey(date);
     const matching = rides.filter((ride) => dateKey(ride.date) === key);
 

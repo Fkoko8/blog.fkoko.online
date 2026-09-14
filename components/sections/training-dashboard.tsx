@@ -36,7 +36,7 @@ export default function TrainingDashboard() {
 
   return (
     <FadeIn>
-      <SectionHeader title="Training This Week" subtitle="Live activity data from Intervals.icu" />
+      <SectionHeader title="Training Last 7 Days" subtitle="Live activity data from Intervals.icu" />
       <div className="card-editorial grain p-6">
         {/* Summary */}
         <div className="grid grid-cols-3 gap-4 border-b border-border pb-6">

@@ -33,7 +33,7 @@ export default function TrainingPage() {
     <div className="container-editorial section-padding">
       <div className="mb-8">
         <h1 className="font-heading text-4xl font-bold uppercase tracking-tight sm:text-5xl">Training</h1>
-        <p className="mt-2 max-w-lg text-muted-foreground">Live activity data from Intervals.icu for the current week.</p>
+        <p className="mt-2 max-w-lg text-muted-foreground">Live activity data from Intervals.icu for the last 7 days.</p>
       </div>
 
       {/* Plan overview */}
@@ -58,7 +58,7 @@ export default function TrainingPage() {
 
       {/* Weekly summary */}
       <div className="mb-8 card-editorial p-6">
-        <h2 className="mb-6 font-heading text-2xl font-bold uppercase tracking-tight">This Week</h2>
+        <h2 className="mb-6 font-heading text-2xl font-bold uppercase tracking-tight">Last 7 Days</h2>
         <div className="grid grid-cols-2 gap-4 border-b border-border pb-6 sm:grid-cols-4">
           <div>
             <div className="flex items-center gap-1.5 text-muted-foreground">
