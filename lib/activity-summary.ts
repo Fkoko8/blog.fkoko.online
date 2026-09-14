@@ -8,7 +8,23 @@ export interface ActivityDay {
   tss: number;
 }
 
-const dateKey = (date: Date) => date.toISOString().slice(0, 10);
+const dateKey = (value: string | Date) => {
+  if (typeof value === 'string') {
+    const localDate = value.match(/^\d{4}-\d{2}-\d{2}/)?.[0];
+    if (localDate) {
+      return localDate;
+    }
+  }
+
+  const date = value instanceof Date ? value : new Date(value);
+  if (Number.isNaN(date.getTime())) {
+    return '';
+  }
+
+  return [date.getFullYear(), date.getMonth() + 1, date.getDate()]
+    .map((part, index) => (index === 0 ? String(part) : String(part).padStart(2, '0')))
+    .join('-');
+};
 
 const durationToHours = (duration: string) => {
   const [hours, minutes, seconds] = duration.split(':').map(Number);
@@ -25,7 +41,7 @@ export function getCurrentWeekActivities(rides: Ride[], now = new Date()) {
     const date = new Date(monday);
     date.setDate(monday.getDate() + index);
     const key = dateKey(date);
-    const matching = rides.filter((ride) => dateKey(new Date(ride.date)) === key);
+    const matching = rides.filter((ride) => dateKey(ride.date) === key);
 
     return {
       day: date.toLocaleDateString('en-US', { weekday: 'short' }).toUpperCase(),
