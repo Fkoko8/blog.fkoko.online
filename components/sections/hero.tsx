@@ -7,12 +7,15 @@ import { ArrowRight, ArrowDown } from 'lucide-react';
 import SmartImage from '@/components/shared/smart-image';
 import profile from '@/data/profile.json';
 import settings from '@/data/settings.json';
+import { useSiteContent } from '@/hooks/use-site-content';
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
   const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const content = useSiteContent();
+  const heroTitle = content['home.heroTitle'].split('. ');
 
   return (
     <section ref={ref} className="relative overflow-hidden grain">
@@ -40,7 +43,7 @@ export default function Hero() {
                 transition={{ delay: 0.15, duration: 0.6 }}
                 className="block"
               >
-                Real Rides
+                {heroTitle[0] ?? 'Real Rides'}
               </motion.span>
               <motion.span
                 initial={{ opacity: 0, y: 30 }}
@@ -48,7 +51,7 @@ export default function Hero() {
                 transition={{ delay: 0.25, duration: 0.6 }}
                 className="block"
               >
-                Real Progress
+                {heroTitle[1] ?? 'Real Progress'}
               </motion.span>
               <motion.span
                 initial={{ opacity: 0, y: 30 }}
@@ -66,7 +69,7 @@ export default function Hero() {
               transition={{ delay: 0.5 }}
               className="mt-6 max-w-md text-sm text-muted-foreground sm:text-base"
             >
-              {settings.siteSubheadline}
+              {content['home.heroSubtitle'] || settings.siteSubheadline}
             </motion.p>
 
             <motion.div

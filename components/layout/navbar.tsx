@@ -9,12 +9,14 @@ import settings from '@/data/settings.json';
 import profile from '@/data/profile.json';
 import ThemeToggle from './theme-toggle';
 import SearchDialog from './search-dialog';
+import { useSiteContent } from '@/hooks/use-site-content';
 
 export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const content = useSiteContent();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -46,6 +48,7 @@ export default function Navbar() {
           {/* Desktop nav */}
           <div className="hidden items-center gap-7 lg:flex">
             {settings.navItems.map((item) => {
+              const label = content[`nav.${item.label.toLowerCase()}`] ?? item.label;
               const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
               return (
                 <Link
@@ -53,7 +56,7 @@ export default function Navbar() {
                   href={item.href}
                   className={`nav-link ${isActive ? 'nav-link-active' : ''}`}
                 >
-                  {item.label}
+                  {label}
                 </Link>
               );
             })}
@@ -111,6 +114,7 @@ export default function Navbar() {
             </div>
             <nav className="flex flex-col gap-1 p-4">
               {settings.navItems.map((item, i) => {
+                const label = content[`nav.${item.label.toLowerCase()}`] ?? item.label;
                 const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
                 return (
                   <motion.div
@@ -125,7 +129,7 @@ export default function Navbar() {
                         isActive ? 'text-accent' : 'text-foreground'
                       }`}
                     >
-                      {item.label}
+                      {label}
                       <span className="text-xs font-mono text-muted-foreground">0{i + 1}</span>
                     </Link>
                   </motion.div>

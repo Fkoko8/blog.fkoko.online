@@ -4,6 +4,7 @@ import { Gauge, HeartPulse, Weight, Clock, MapPin } from 'lucide-react';
 import AnimatedNumber from '@/components/shared/animated-number';
 import FadeIn from '@/components/shared/fade-in';
 import profile from '@/data/profile.json';
+import { useSiteContent } from '@/hooks/use-site-content';
 
 interface StatItem {
   icon: React.ReactNode;
@@ -16,13 +17,14 @@ interface StatItem {
 
 export default function StatsBar() {
   const s = profile.stats;
+  const content = useSiteContent();
 
   const stats: StatItem[] = [
-    { icon: <Gauge className="h-5 w-5" />, value: s.ftp, displayValue: '', unit: 'W', label: 'FTP', change: s.ftpChange },
-    { icon: <HeartPulse className="h-5 w-5" />, value: s.lthr, displayValue: '', unit: 'BPM', label: 'LTHR', change: s.lthrChange },
-    { icon: <Weight className="h-5 w-5" />, value: s.weight, displayValue: '', unit: 'KG', label: 'WEIGHT', change: s.weightChange },
-    { icon: <Clock className="h-5 w-5" />, value: 0, displayValue: s.weeklyHours, unit: '', label: 'THIS WEEK', change: s.weeklyChange },
-    { icon: <MapPin className="h-5 w-5" />, value: s.monthlyKm, displayValue: '', unit: 'KM', label: 'THIS MONTH', change: s.monthlyChange },
+    { icon: <Gauge className="h-5 w-5" />, value: Number(content['stats.ftp']) || s.ftp, displayValue: '', unit: 'W', label: 'FTP', change: content['stats.ftpChange'] || s.ftpChange },
+    { icon: <HeartPulse className="h-5 w-5" />, value: Number(content['stats.lthr']) || s.lthr, displayValue: '', unit: 'BPM', label: 'LTHR', change: content['stats.lthrChange'] || s.lthrChange },
+    { icon: <Weight className="h-5 w-5" />, value: Number(content['stats.weight']) || s.weight, displayValue: '', unit: 'KG', label: 'WEIGHT', change: content['stats.weightChange'] || s.weightChange },
+    { icon: <Clock className="h-5 w-5" />, value: 0, displayValue: content['stats.weeklyHours'] || s.weeklyHours, unit: '', label: 'THIS WEEK', change: content['stats.weeklyChange'] || s.weeklyChange },
+    { icon: <MapPin className="h-5 w-5" />, value: Number(content['stats.monthlyKm']) || s.monthlyKm, displayValue: '', unit: 'KM', label: 'THIS MONTH', change: content['stats.monthlyChange'] || s.monthlyChange },
   ];
 
   return (
