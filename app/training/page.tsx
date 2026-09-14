@@ -5,7 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Clock, Mountain, Gauge, TrendingUp, Target } from 'lucide-react';
 import AnimatedNumber from '@/components/shared/animated-number';
 import training from '@/data/training.json';
-import type { TrainingDay } from '@/lib/types';
+import { useActivities } from '@/hooks/use-activities';
+import { formatHours, getCurrentWeekActivities } from '@/lib/activity-summary';
 
 type Metric = 'distance' | 'time' | 'elevation' | 'tss';
 
@@ -18,15 +19,21 @@ const metricConfig: Record<Metric, { label: string; unit: string; icon: React.Re
 
 export default function TrainingPage() {
   const [metric, setMetric] = useState<Metric>('distance');
-  const days = training.days as TrainingDay[];
-  const maxVal = Math.max(...days.map((d) => d[metric]));
-  const summary = training.weeklySummary;
+  const rides = useActivities();
+  const days = getCurrentWeekActivities(rides);
+  const maxVal = Math.max(...days.map((d) => d[metric]), 1);
+  const summary = {
+    totalTime: formatHours(days.reduce((sum, day) => sum + day.time, 0)),
+    totalDistance: Math.round(days.reduce((sum, day) => sum + day.distance, 0) * 10) / 10,
+    totalElevation: days.reduce((sum, day) => sum + day.elevation, 0),
+    totalTSS: days.reduce((sum, day) => sum + day.tss, 0),
+  };
 
   return (
     <div className="container-editorial section-padding">
       <div className="mb-8">
         <h1 className="font-heading text-4xl font-bold uppercase tracking-tight sm:text-5xl">Training</h1>
-        <p className="mt-2 max-w-lg text-muted-foreground">{training.plan.focus}. Currently in {training.plan.phase}.</p>
+        <p className="mt-2 max-w-lg text-muted-foreground">Live activity data from Intervals.icu for the current week.</p>
       </div>
 
       {/* Plan overview */}
@@ -79,7 +86,7 @@ export default function TrainingPage() {
               <Gauge className="h-4 w-4" />
               <span className="text-xs font-mono uppercase tracking-wider">TSS</span>
             </div>
-            <p className="stat-value mt-1 text-2xl text-foreground">{summary.totalTSS}</p>
+            <p className="stat-value mt-1 text-2xl text-foreground">{summary.totalTSS || '—'}</p>
           </div>
         </div>
 

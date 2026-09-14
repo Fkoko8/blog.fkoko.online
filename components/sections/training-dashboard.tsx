@@ -5,9 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Clock, Mountain, Gauge, TrendingUp } from 'lucide-react';
 import FadeIn from '@/components/shared/fade-in';
 import SectionHeader from '@/components/shared/section-header';
-import AnimatedNumber from '@/components/shared/animated-number';
-import training from '@/data/training.json';
-import type { TrainingDay } from '@/lib/types';
+import { useActivities } from '@/hooks/use-activities';
+import { formatHours, getCurrentWeekActivities } from '@/lib/activity-summary';
 
 type Metric = 'distance' | 'time' | 'elevation' | 'tss';
 
@@ -20,9 +19,14 @@ const metricConfig: Record<Metric, { label: string; unit: string; icon: React.Re
 
 export default function TrainingDashboard() {
   const [metric, setMetric] = useState<Metric>('distance');
-  const days = training.days as TrainingDay[];
-  const maxVal = Math.max(...days.map((d) => d[metric]));
-  const summary = training.weeklySummary;
+  const rides = useActivities();
+  const days = getCurrentWeekActivities(rides);
+  const maxVal = Math.max(...days.map((d) => d[metric]), 1);
+  const summary = {
+    totalTime: formatHours(days.reduce((sum, day) => sum + day.time, 0)),
+    totalDistance: days.reduce((sum, day) => sum + day.distance, 0),
+    totalElevation: days.reduce((sum, day) => sum + day.elevation, 0),
+  };
 
   const summaryStats = [
     { label: 'Total Time', value: summary.totalTime, icon: <Clock className="h-4 w-4" /> },
@@ -32,7 +36,7 @@ export default function TrainingDashboard() {
 
   return (
     <FadeIn>
-      <SectionHeader title="Training This Week" subtitle={training.plan.focus} />
+      <SectionHeader title="Training This Week" subtitle="Live activity data from Intervals.icu" />
       <div className="card-editorial grain p-6">
         {/* Summary */}
         <div className="grid grid-cols-3 gap-4 border-b border-border pb-6">
@@ -104,9 +108,8 @@ export default function TrainingDashboard() {
 
         {/* Plan info */}
         <div className="mt-6 flex flex-wrap items-center gap-4 border-t border-border pt-4 text-xs font-mono text-muted-foreground">
-          <span>Phase: <span className="text-foreground">{training.plan.phase}</span></span>
-          <span>Target: <span className="text-foreground">{training.plan.weeklyTargetHours}h/week</span></span>
-          <span>Weeks left: <span className="text-foreground">{training.plan.weeksRemaining}</span></span>
+            <span>Source: <span className="text-foreground">Intervals.icu</span></span>
+            <span>Activities: <span className="text-foreground">{rides.length}</span></span>
         </div>
       </div>
     </FadeIn>

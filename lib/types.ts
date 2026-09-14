@@ -93,6 +93,7 @@ export interface Ride {
   routeImage: string | null;
   notes: string;
   activityUrl?: string;
+  trainingLoad?: number;
 }
 
 export interface TrainingDay {

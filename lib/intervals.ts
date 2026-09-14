@@ -14,6 +14,7 @@ interface IntervalsActivity {
   state?: string | null;
   country?: string | null;
   description?: string | null;
+  icu_training_load?: number | null;
 }
 
 const formatDuration = (seconds = 0) => {
@@ -39,6 +40,7 @@ export const mapIntervalsActivity = (activity: IntervalsActivity): Ride => ({
   routeImage: null,
   notes: activity.description || 'Activity imported from Intervals.icu.',
   activityUrl: `https://intervals.icu/activities/${activity.id}`,
+  trainingLoad: activity.icu_training_load ?? undefined,
 });
 
 export async function getIntervalsActivities() {
