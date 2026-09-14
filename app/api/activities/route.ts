@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { getIntervalsActivities } from '@/lib/intervals';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     const activities = await getIntervalsActivities();
