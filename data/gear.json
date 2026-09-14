@@ -1,0 +1,74 @@
+[
+  {
+    "id": "gear-001",
+    "name": "Fox Proframe Helmet",
+    "category": "Helmet",
+    "rating": 4.5,
+    "distanceTested": "1,200 km",
+    "opinion": "Light, well-ventilated, and the MIPS gives confidence. Fits true to size.",
+    "image": "https://images.pexels.com/photos/5807790/pexels-photo-5807790.jpeg?auto=compress&cs=tinysrgb&h=400&w=600"
+  },
+  {
+    "id": "gear-002",
+    "name": "Five Ten Freerider Pro",
+    "category": "Shoes",
+    "rating": 5.0,
+    "distanceTested": "2,500 km",
+    "opinion": "Best flat pedal shoes I've used. Grip is unreal, and they survive everything.",
+    "image": "https://images.pexels.com/photos/5807798/pexels-photo-5807798.jpeg?auto=compress&cs=tinysrgb&h=400&w=600"
+  },
+  {
+    "id": "gear-003",
+    "name": "Oakley Radar EV",
+    "category": "Glasses",
+    "rating": 4.0,
+    "distanceTested": "3,000 km",
+    "opinion": "Great optics and coverage. Prizm trail lens is perfect for forest riding.",
+    "image": "https://images.pexels.com/photos/5733609/pexels-photo-5733609.jpeg?auto=compress&cs=tinysrgb&h=400&w=600"
+  },
+  {
+    "id": "gear-004",
+    "name": "Endura MT500 Burner",
+    "category": "Clothing",
+    "rating": 4.5,
+    "distanceTested": "1,800 km",
+    "opinion": "Tough, breathable, and the pockets actually hold stuff. Good for long days.",
+    "image": "https://images.pexels.com/photos/8926717/pexels-photo-8926717.jpeg?auto=compress&cs=tinysrgb&h=400&w=600"
+  },
+  {
+    "id": "gear-005",
+    "name": "Topeak Mini 20 Pro",
+    "category": "Tools",
+    "rating": 4.0,
+    "distanceTested": "5,000 km",
+    "opinion": "Has every tool I need on the trail. Small enough to forget it's in my pack.",
+    "image": "https://images.pexels.com/photos/12955912/pexels-photo-12955912.jpeg?auto=compress&cs=tinysrgb&h=400&w=600"
+  },
+  {
+    "id": "gear-006",
+    "name": "SIS GO Gel",
+    "category": "Nutrition",
+    "rating": 4.0,
+    "distanceTested": "500+ km",
+    "opinion": "Easy to eat on the bike, doesn't upset my stomach. Go-to for long rides.",
+    "image": "https://images.pexels.com/photos/12944642/pexels-photo-12944642.jpeg?auto=compress&cs=tinysrgb&h=400&w=600"
+  },
+  {
+    "id": "gear-007",
+    "name": "Garmin Edge 540",
+    "category": "Electronics",
+    "rating": 4.5,
+    "distanceTested": "4,000 km",
+    "opinion": "Reliable, accurate, and the battery lasts forever. Climb Pro feature is genuinely useful.",
+    "image": "https://images.pexels.com/photos/5836912/pexels-photo-5836912.jpeg?auto=compress&cs=tinysrgb&h=400&w=600"
+  },
+  {
+    "id": "gear-008",
+    "name": "Camelbak M.U.L.E.",
+    "category": "Accessories",
+    "rating": 4.0,
+    "distanceTested": "3,500 km",
+    "opinion": "Carries everything I need for a long ride without bouncing. 3L is enough for most days.",
+    "image": "https://images.pexels.com/photos/12031132/pexels-photo-12031132.jpeg?auto=compress&cs=tinysrgb&h=400&w=600"
+  }
+]
