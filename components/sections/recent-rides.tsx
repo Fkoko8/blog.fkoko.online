@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Mountain, Clock, MapPin } from 'lucide-react';
 import FadeIn from '@/components/shared/fade-in';
@@ -32,9 +33,9 @@ export default function RecentRides() {
           <Link key={ride.id} href="/rides" className="block">
             <div className="card-editorial group flex items-center gap-4 p-4 transition-all hover:border-accent/30">
               {/* Route thumbnail */}
-              <div className="hidden h-16 w-24 shrink-0 overflow-hidden rounded-lg border border-border bg-muted/30 sm:block">
+              <div className="relative hidden h-16 w-24 shrink-0 overflow-hidden rounded-lg border border-border bg-muted/30 sm:block">
                 {ride.routeImage ? (
-                  <img src={ride.routeImage} alt={ride.title} className="h-full w-full object-cover" />
+                  <Image src={ride.routeImage} alt={ride.title} fill sizes="96px" className="object-cover" />
                 ) : (
                   <RouteThumbnail seed={ride.id} distance={ride.distance} elevation={ride.elevation} />
                 )}

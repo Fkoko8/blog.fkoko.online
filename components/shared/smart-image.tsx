@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -55,17 +56,18 @@ export default function SmartImage({
           )}
         />
       )}
-      <img
+      <Image
         src={src}
         alt={alt}
-        loading={priority ? 'eager' : 'lazy'}
+        fill={fill}
+        priority={priority}
+        sizes={sizes ?? (fill ? '(max-width: 768px) 100vw, 50vw' : undefined)}
         className={cn(
           'transition-opacity duration-500',
           loaded ? 'opacity-100' : 'opacity-0',
           fill ? 'absolute inset-0 w-full h-full object-cover' : 'w-full h-full object-cover',
           className
         )}
-        style={fill ? undefined : undefined}
         onLoad={() => setLoaded(true)}
         onError={() => setError(true)}
       />

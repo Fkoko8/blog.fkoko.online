@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Mountain, Clock, MapPin, Gauge, X } from 'lucide-react';
 import RouteThumbnail from '@/components/shared/route-thumbnail';
@@ -99,9 +100,9 @@ export default function RidesPage() {
                 onClick={() => setSelected(ride)}
                 className="card-editorial group p-4 text-left transition-all hover:border-accent/30"
               >
-                <div className="mb-3 h-20 overflow-hidden rounded-lg border border-border bg-muted/30">
+                <div className="relative mb-3 h-20 overflow-hidden rounded-lg border border-border bg-muted/30">
                   {ride.routeImage ? (
-                    <img src={ride.routeImage} alt={ride.title} className="h-full w-full object-cover" />
+                    <Image src={ride.routeImage} alt={ride.title} fill sizes="(max-width: 640px) 100vw, 33vw" className="object-cover" />
                   ) : (
                     <RouteThumbnail seed={ride.id} distance={ride.distance} elevation={ride.elevation} />
                   )}
@@ -164,9 +165,9 @@ export default function RidesPage() {
                 </button>
               </div>
               <div className="p-4">
-                <div className="mb-4 h-32 overflow-hidden rounded-xl border border-border bg-muted/30">
+                <div className="relative mb-4 h-32 overflow-hidden rounded-xl border border-border bg-muted/30">
                   {selected.routeImage ? (
-                    <img src={selected.routeImage} alt={selected.title} className="h-full w-full object-cover" />
+                    <Image src={selected.routeImage} alt={selected.title} fill sizes="(max-width: 640px) 100vw, 512px" className="object-cover" />
                   ) : (
                     <RouteThumbnail seed={selected.id} distance={selected.distance} elevation={selected.elevation} />
                   )}
