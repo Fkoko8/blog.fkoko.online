@@ -49,7 +49,7 @@ export async function getIntervalsActivities() {
     return null;
   }
 
-  const credentials = Buffer.from(`${apiKey}:`).toString('base64');
+  const credentials = Buffer.from(`API_KEY:${apiKey}`).toString('base64');
   const oldest = new Date();
   oldest.setFullYear(oldest.getFullYear() - 1);
   const params = new URLSearchParams({
