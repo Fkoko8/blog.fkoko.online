@@ -6,13 +6,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Mountain, Clock, MapPin, Gauge, X } from 'lucide-react';
 import RouteThumbnail from '@/components/shared/route-thumbnail';
 import EmptyState from '@/components/shared/empty-state';
-import rides from '@/data/rides.json';
+import { useStravaActivities } from '@/hooks/use-strava-activities';
 import type { Ride } from '@/lib/types';
 
 export default function RidesPage() {
   const [query, setQuery] = useState('');
   const [typeFilter, setTypeFilter] = useState('ALL');
   const [selected, setSelected] = useState<Ride | null>(null);
+  const rides = useStravaActivities();
 
   const types = ['ALL', ...Array.from(new Set(rides.map((r) => r.type)))];
 

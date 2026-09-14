@@ -6,10 +6,11 @@ import { ArrowRight, Mountain, Clock, MapPin } from 'lucide-react';
 import FadeIn from '@/components/shared/fade-in';
 import SectionHeader from '@/components/shared/section-header';
 import RouteThumbnail from '@/components/shared/route-thumbnail';
-import rides from '@/data/rides.json';
+import { useStravaActivities } from '@/hooks/use-strava-activities';
 import type { Ride } from '@/lib/types';
 
 export default function RecentRides() {
+  const rides = useStravaActivities();
   const recent = rides.slice(0, 5) as Ride[];
 
   if (!recent.length) {
@@ -30,7 +31,7 @@ export default function RecentRides() {
       />
       <div className="space-y-2">
         {recent.map((ride) => (
-          <Link key={ride.id} href="/rides" className="block">
+          <Link key={ride.id} href={ride.stravaUrl ?? '/rides'} className="block" target={ride.stravaUrl ? '_blank' : undefined} rel={ride.stravaUrl ? 'noreferrer' : undefined}>
             <div className="card-editorial group flex items-center gap-4 p-4 transition-all hover:border-accent/30">
               {/* Route thumbnail */}
               <div className="relative hidden h-16 w-24 shrink-0 overflow-hidden rounded-lg border border-border bg-muted/30 sm:block">
