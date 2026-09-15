@@ -1,0 +1,9 @@
+[
+  { "id": "goal-1", "text": "Improve FTP to 260W", "done": false, "progress": 95 },
+  { "id": "goal-2", "text": "First race this season", "done": true, "progress": 100 },
+  { "id": "goal-3", "text": "Build consistent training routine", "done": true, "progress": 100 },
+  { "id": "goal-4", "text": "Explore new trails", "done": false, "progress": 60 },
+  { "id": "goal-5", "text": "Improve technical descending", "done": false, "progress": 75 },
+  { "id": "goal-6", "text": "Complete a 100km ride", "done": false, "progress": 68 },
+  { "id": "goal-7", "text": "Sub 1:40 XC race time", "done": false, "progress": 40 }
+]

@@ -1,0 +1,83 @@
+{
+  "name": "LightCarbon LCFS980",
+  "tagline": "XC race machine, built for speed and precision on technical trails.",
+  "image": "https://images.pexels.com/photos/18876489/pexels-photo-18876489.jpeg?auto=compress&cs=tinysrgb&h=700&w=1000",
+  "weight": "9.4 kg",
+  "year": 2024,
+  "overview": "A purpose-built XC race bike designed for technical courses and endurance events. Every component chosen for the balance of weight, reliability, and serviceability.",
+  "specifications": [
+    { "label": "FRAME", "value": "LCFS980 (L)" },
+    { "label": "FORK", "value": "RockShox SID Ultimate" },
+    { "label": "SHOCK", "value": "RockShox SID Luxe" },
+    { "label": "WHEELS", "value": "36 / 24 spokes, carbon rim" },
+    { "label": "TIRES", "value": "Vittoria Mezcal 2.35\"" },
+    { "label": "DRIVETRAIN", "value": "SRAM XX1 Eagle 12-speed" },
+    { "label": "BRAKES", "value": "Shimano XT 4-piston" },
+    { "label": "COCKPIT", "value": "760mm carbon bar, 90mm stem" },
+    { "label": "SEATPOST", "value": "Carbon dropper 150mm" },
+    { "label": "SADDLE", "value": "Fabric Scoop Elite" },
+    { "label": "WEIGHT", "value": "~9.4 kg" }
+  ],
+  "geometry": {
+    "size": "L",
+    "reach": "445 mm",
+    "stack": "610 mm",
+    "headAngle": "68°",
+    "seatAngle": "74.5°",
+    "chainstay": "435 mm",
+    "wheelbase": "1170 mm",
+    "bbDrop": "70 mm"
+  },
+  "buildHistory": [
+    {
+      "stage": "Original Build",
+      "date": "Jan 2024",
+      "description": "Stock frame with entry-level race kit. Solid foundation, but heavy wheels and basic cockpit.",
+      "weight": "10.2 kg"
+    },
+    {
+      "stage": "Wheel Upgrade",
+      "date": "Mar 2024",
+      "description": "Swapped to carbon rims with lighter hubs. Noticeable acceleration improvement, dropped 400g.",
+      "weight": "9.8 kg"
+    },
+    {
+      "stage": "Cockpit Update",
+      "date": "May 2024",
+      "description": "Wider carbon bar and shorter stem for better technical control on descents.",
+      "weight": "9.6 kg"
+    },
+    {
+      "stage": "Current Setup",
+      "date": "Sep 2026",
+      "description": "Fine-tuned suspension, lighter tires, and drivetrain refresh. Race-ready.",
+      "weight": "9.4 kg"
+    }
+  ],
+  "setupNotes": [
+    "Suspension tuned for 68kg rider, 25% sag front, 30% sag rear",
+    "Tire pressure 22F / 24R for dry conditions, 20F / 22R for wet",
+    "Dropper post at 150mm for steep technical descents",
+    "Brake pads: metallic for wet conditions, resin for dry"
+  ],
+  "upgrades": [
+    {
+      "component": "Carbon wheelset",
+      "brand": "LightCarbon",
+      "status": "installed",
+      "notes": "Significant weight savings and better acceleration"
+    },
+    {
+      "component": "Carbon handlebar 760mm",
+      "brand": "Race Face",
+      "status": "installed",
+      "notes": "Better control on technical sections"
+    },
+    {
+      "component": "Ceramic bearings",
+      "brand": "CeramicSpeed",
+      "status": "planned",
+      "notes": "Considering for next season"
+    }
+  ]
+}
