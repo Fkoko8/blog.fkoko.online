@@ -1,0 +1,28 @@
+{
+  "name": "FKoko",
+  "displayName": "FKOKO",
+  "role": "XC Cyclist | Builder",
+  "location": "Poland",
+  "bio": "Student, cross-country cyclist, and builder. Trying to ride fast, learn a lot, and build a life I'm proud of. This is where I document the journey — every ride, every race, every upgrade.",
+  "avatar": "https://images.pexels.com/photos/5807790/pexels-photo-5807790.jpeg?auto=compress&cs=tinysrgb&h=400&w=400",
+  "cover": "https://images.pexels.com/photos/20678000/pexels-photo-20678000.jpeg?auto=compress&cs=tinysrgb&h=800&w=1600",
+  "quote": "Progress, not perfection.",
+  "socials": {
+    "instagram": "https://instagram.com",
+    "youtube": "https://youtube.com",
+    "strava": "https://strava.com",
+    "github": "https://github.com"
+  },
+  "stats": {
+    "ftp": 247,
+    "lthr": 183,
+    "weight": 68,
+    "weeklyHours": "8h 42m",
+    "monthlyKm": 421,
+    "weeklyChange": "+0.3h",
+    "monthlyChange": "+12 km",
+    "ftpChange": "+3W",
+    "lthrChange": "0",
+    "weightChange": "-0.5 kg"
+  }
+}
